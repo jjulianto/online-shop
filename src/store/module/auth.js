@@ -60,8 +60,6 @@ const auth = {
                 })
         },
         logout({ commit }) {
-
-            //define callback promise
             return new Promise((resolve) => {
                 commit('AUTH_LOGOUT')
 
@@ -71,6 +69,34 @@ const auth = {
                 delete api.defaults.headers.common['Authorization']
 
                 resolve()
+            })
+        },
+        login({ commit }, user) {
+            return new Promise((resolve, reject) => {
+                api.post('/login', {
+                        email: user.email,
+                        password: user.password,
+
+                    })
+                    .then(response => {
+                        const token = response.data.token
+                        const user = response.data.user
+
+                        localStorage.setItem('token', token)
+                        localStorage.setItem('user', JSON.stringify(user))
+
+                        api.defaults.headers.common['Authorization'] = "Bearer " + token
+
+                        commit('AUTH_SUCCESS', token, user)
+
+                        commit('GET_USER', user)
+
+                        resolve(response)
+                    }).catch(error => {
+                        localStorage.removeItem('token')
+
+                        reject(error.response.data)
+                    })
             })
         },
     },
