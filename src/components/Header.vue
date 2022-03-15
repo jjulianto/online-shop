@@ -25,7 +25,7 @@
                                 <a href="#" class="btn search-button btn-md" style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"><i class="fa fa-shopping-cart"></i> 0 | Rp. 0 </a>
                             </div>
                             <div class="account">
-                                <a href="#" class="btn search-button btn-md d-none d-md-block ms-4"><i class="fa fa-user-circle"></i> ACCOUNT</a>    
+                                <router-link to="/login" class="btn search-button btn-md d-none d-md-block ms-4"><i class="fa fa-user-circle"></i> Account</router-link>    
                             </div>
                         </div>
                     </div>
@@ -37,6 +37,6 @@
 
 <script>
     export default {
-        name: 'MyHeader',
+        name: 'Header',
     }
 </script>
