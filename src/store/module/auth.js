@@ -16,6 +16,10 @@ const auth = {
         GET_USER(state, user) {
             state.user = user
         },
+        AUTH_LOGOUT(state) {
+            state.token = ''
+            state.user = {}
+        }
     },
 
     actions: {
@@ -54,6 +58,20 @@ const auth = {
                 .then(response => {
                     commit('GET_USER', response.data.user)
                 })
+        },
+        logout({ commit }) {
+
+            //define callback promise
+            return new Promise((resolve) => {
+                commit('AUTH_LOGOUT')
+
+                localStorage.removeItem('token')
+                localStorage.removeItem('user')
+
+                delete api.defaults.headers.common['Authorization']
+
+                resolve()
+            })
         },
     },
 
