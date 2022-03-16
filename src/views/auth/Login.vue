@@ -49,6 +49,7 @@
 import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import Swal from 'sweetalert2'
 
 export default {
     setup() {            
@@ -73,6 +74,11 @@ export default {
             })
             .then(() => {                    
                 router.push({name: 'dashboard'})
+                Swal.fire({
+                    title: "Success",
+                    text: "Login successfully.",
+                    icon: "success",
+                });
             }).catch(error => {                    
                 validation.value = error
             })

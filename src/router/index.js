@@ -18,7 +18,25 @@ const routes = [{
         path: '/customer/dashboard',
         name: 'dashboard',
         component: () =>
-            import ( /* webpackChunkName: "Dashboard" */ '@/views/dashboard/Index.vue'),
+            import ( /* webpackChunkName: "dashboard" */ '@/views/dashboard/Index.vue'),
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/customer/order',
+        name: 'order',
+        component: () =>
+            import ( /* webpackChunkName: "order" */ '../views/order/Index.vue'),
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/customer/order/:snap_token',
+        name: 'detail_order',
+        component: () =>
+            import ( /* webpackChunkName: "detail_order" */ '../views/order/Show.vue'),
         meta: {
             requiresAuth: true
         }

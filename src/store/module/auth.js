@@ -38,9 +38,11 @@ const auth = {
                         localStorage.setItem('token', token)
                         localStorage.setItem('user', JSON.stringify(user))
 
-                        api.defaults.headers.common['Authorization'] = "Bearer " + token
+                        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
                         commit('AUTH_SUCCESS', token, user)
+
+                        commit('GET_USER', user)
 
                         resolve(response);
                     }).catch(error => {
@@ -53,7 +55,7 @@ const auth = {
         getUser({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
             api.get('/user')
                 .then(response => {
                     commit('GET_USER', response.data.user)
@@ -76,7 +78,6 @@ const auth = {
                 api.post('/login', {
                         email: user.email,
                         password: user.password,
-
                     })
                     .then(response => {
                         const token = response.data.token
@@ -85,7 +86,7 @@ const auth = {
                         localStorage.setItem('token', token)
                         localStorage.setItem('user', JSON.stringify(user))
 
-                        api.defaults.headers.common['Authorization'] = "Bearer " + token
+                        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
                         commit('AUTH_SUCCESS', token, user)
 
