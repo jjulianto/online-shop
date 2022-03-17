@@ -1,21 +1,5 @@
 <template>
-    <div class="container-fluid mt-3">
-        <div class="row">
-            <div class="col-md-3 mb-4">
-                <Category />
-            </div>
-            <div class="col-md-9 mb-4">
-                <Slider />
-            </div>
-        </div>
-    </div>
     <div class="container-fluid mb-5 mt-4">
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="font-weight-bold"><i class="fa fa-shopping-bag"></i> Produk Terbaru</h4>
-                <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem">
-            </div>
-        </div>
         <div class="row">
             <div v-for="product in products" :key="product.id" class="col-md-3 col-12 mb-3">
                 <div class="card h-100 border-0 shadow rounded-md">
@@ -44,31 +28,29 @@
 </template>
 
 <script>
-import Category from '@/components/Category'
-import Slider from '@/components/Slider'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
 
     export default {
-        components: {
-            Category,
-            Slider
-        },
-
         setup() {            
             const store = useStore()
-
+            
+            const route = useRoute()
+            
             onMounted(() => {
-                store.dispatch('product/getProducts')
+                store.dispatch('category/getProductInCategory', route.params.slug)
             })
-
+            
             const products = computed(() => {
-                return store.state.product.products
+                return store.state.category.productInCategory
             })
 
-            return {            
+            return {
+                store,
+                route,
                 products
             }
         }
-}
+    }
 </script>
