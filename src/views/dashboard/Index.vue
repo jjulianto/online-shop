@@ -7,7 +7,7 @@
             <div class="col-md-9 mb-4">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <h5 class="font-weight-bold"> <i class="fas fa-tachometer-alt"></i> Dashboard</h5>
+                        <h5 class="fw-bold"> <i class="fas fa-tachometer-alt"></i> Dashboard</h5>
                         <hr>
                         Selamat Datang <strong>{{ user.name }}</strong>
                     </div>

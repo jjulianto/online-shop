@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 mb-4">
-                    <h4 class="font-weight-bold">Tentang</h4>
+                    <h4 class="fw-bold">Tentang</h4>
                     <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem">
                     <p>
                         Toko Online Shopping / Store Terpercaya di Indonesia. Jual Beli Aman & Harga Termurah! Belanja
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <h4 class="font-weight-bold">Pembayaran</h4>
+                    <h4 class="fw-bold">Pembayaran</h4>
                     <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem">
                     <div class="row">
                         <div class="col-md-4 col-4 mb-3">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h4 class="font-weight-bold">Kontak</h4>
+                    <h4 class="fw-bold">Kontak</h4>
                     <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem">
                     <p>
                         <i class="fa fa-clock"></i> Toko Buka Setiap Hari :

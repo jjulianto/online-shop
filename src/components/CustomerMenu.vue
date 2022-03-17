@@ -1,7 +1,7 @@
 <template>
   <div class="card border-0 rounded shadow">
     <div class="card-body">
-        <h5 class="font-weight-bold">Main Menu</h5>
+        <h5 class="fw-bold">Main Menu</h5>
         <hr>
         <ul class="list-group">
             <router-link :to="{name: 'dashboard' }" class="list-group-item text-decoration-none text-dark"><i class="fas fa-tachometer-alt"></i> Dashboard</router-link>

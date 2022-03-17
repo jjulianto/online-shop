@@ -7,7 +7,7 @@
             <div class="col-md-9 mb-4">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <h5 class="font-weight-bold"> <i class="fas fa-shopping-cart"></i> Detail Order</h5>
+                        <h5 class="fw-bold"> <i class="fas fa-shopping-cart"></i> Detail Order</h5>
                         <hr>
                         <table class="table table-bordered">
                             <tr>
@@ -109,7 +109,7 @@
                                         </table>
                                     </td>
                                     <td class="b-none text-right">
-                                        <p class="m-0 font-weight-bold">Rp. {{ moneyFormat(product.price) }}</p>
+                                        <p class="m-0 fw-bold">Rp. {{ moneyFormat(product.price) }}</p>
                                     </td>
                                 </tr>
                             </tbody>

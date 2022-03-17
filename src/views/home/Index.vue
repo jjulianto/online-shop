@@ -12,7 +12,7 @@
     <div class="container-fluid mb-5 mt-4">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="font-weight-bold"><i class="fa fa-shopping-bag"></i> Produk Terbaru</h4>
+                <h4 class="fw-bold"><i class="fa fa-shopping-bag"></i> Produk Terbaru</h4>
                 <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem">
             </div>
         </div>
@@ -32,7 +32,7 @@
                                 style="background-color: darkorange" class="badge badge-pill badge-success text-white">Diskon
                                 {{ product.discount }} %</span>
                         </div>                    
-                        <div class="price font-weight-bold mt-3" style="color: #47b04b;font-size:20px">
+                        <div class="price fw-bold mt-3" style="color: #47b04b;font-size:20px">
                             Rp. {{ moneyFormat(calculateDiscount(product)) }}</div>
                         <hr style="border-top: 1px solid rgb(0 0 0);border-radius:.5rem">
                         <router-link :to="{name: 'detail_product', params:{slug: product.slug}}" class="btn btn-primary btn-md w-100 shadow-md">Lihat Produk</router-link>
