@@ -1,6 +1,8 @@
 <template>
   <Header /> 
-  <router-view />
+  <transition name="fade">
+    <router-view />
+  </transition>
   <Footer />
 </template>
 

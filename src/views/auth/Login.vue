@@ -78,6 +78,8 @@ export default {
                     title: "Success",
                     text: "Login successfully.",
                     icon: "success",
+                    showConfirmButton: false,
+                    timer: 1000
                 });
             }).catch(error => {                    
                 validation.value = error

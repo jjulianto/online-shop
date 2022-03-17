@@ -100,6 +100,8 @@ import Swal from 'sweetalert2'
                         title: "Success",
                         text: "Register successfully.",
                         icon: "success",
+                        showConfirmButton: false,
+                        timer: 1000
                     });
                 }).catch(error => {                    
                     validation.value = error

@@ -5,6 +5,8 @@ import router from './router'
 
 import store from './store'
 
+import 'vue2-animate/dist/vue2-animate.min.css'
+
 const app = createApp(App)
 
 app.use(router)
