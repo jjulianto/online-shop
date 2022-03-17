@@ -4,6 +4,7 @@ import auth from './module/auth'
 import order from './module/order'
 import category from './module/category'
 import slider from './module/slider'
+import product from './module/product'
 
 export default createStore({
     modules: {
@@ -11,5 +12,6 @@ export default createStore({
         order,
         category,
         slider,
+        product,
     }
 })

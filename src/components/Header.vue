@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3 col-7">
                         <router-link :to="{name: 'home'}" class="text-decoration-none" data-abc="true">
-                            <span class="logo"><i class="fa fa-apple-alt"></i> Apple Store </span></router-link>
+                            <span class="logo" style="font-size: 22px;"><i class="fa fa-apple-alt"></i> Apple Store </span></router-link>
                     </div>
                     <div class="col-md-5 d-none d-md-block">
                         <form class="search-wrap">
