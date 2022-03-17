@@ -76,10 +76,10 @@ export default {
                 router.push({name: 'dashboard'})
                 Swal.fire({
                     title: "Success",
-                    text: "Login successfully.",
+                    text: "Login berhasill.",
                     icon: "success",
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 1500
                 });
             }).catch(error => {                    
                 validation.value = error

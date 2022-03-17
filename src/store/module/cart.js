@@ -1,4 +1,5 @@
 import api from "@/api/api"
+import Swal from 'sweetalert2'
 
 const cart = {
     namespaced: true,
@@ -45,6 +46,14 @@ const cart = {
                         .then(response => {
                             commit('TOTAL_CART', response.data.total)
                         })
+
+                    Swal.fire({
+                        title: "Success",
+                        text: "Produk ditambahkan ke keranjang.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 })
         },
         cartCount({ commit }) {
@@ -75,6 +84,31 @@ const cart = {
             api.get('/cart/totalWeight')
                 .then(response => {
                     commit('CART_WEIGHT', response.data.total)
+                })
+        },
+        removeCart({ commit }, cart_id) {
+            const token = localStorage.getItem('token')
+
+            api.defaults.headers.common['Authorization'] = "Bearer " + token
+
+            api.post('/cart/remove', {
+                    cart_id: cart_id
+                })
+                .then(() => {
+                    api.get('/cart')
+                        .then(response => {
+                            commit('GET_CART', response.data.cart)
+                        })
+
+                    api.get('/cart/total')
+                        .then(response => {
+                            commit('TOTAL_CART', response.data.total)
+                        })
+
+                    api.get('/cart/totalWeight')
+                        .then(response => {
+                            commit('CART_WEIGHT', response.data.total)
+                        })
                 })
         },
     },

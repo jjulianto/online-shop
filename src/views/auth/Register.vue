@@ -98,10 +98,10 @@ import Swal from 'sweetalert2'
                     router.push({name: 'dashboard'})
                     Swal.fire({
                         title: "Success",
-                        text: "Register successfully.",
+                        text: "Register berhasil.",
                         icon: "success",
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 1500
                     });
                 }).catch(error => {                    
                     validation.value = error
