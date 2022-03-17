@@ -82,7 +82,7 @@ import Swal from 'sweetalert2'
             
             const router = useRouter()
             
-            function register() {                
+            const register = () => {                
                 let name     = user.name
                 let email    = user.email
                 let password = user.password

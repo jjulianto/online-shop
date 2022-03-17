@@ -9,28 +9,30 @@
                     <div class="card-body">
                         <h5 class="fw-bold"> <i class="fas fa-shopping-cart"></i> My Order</h5>
                         <hr>
-                        <table class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Full Name</th>
-                                    <th scope="col">Shipping</th>
-                                    <th scope="col">Grand Total</th>
-                                    <th scope="col">Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="order in orders" :key="order.id">
-                                    <th>{{ order.invoice }}</th>
-                                    <td>{{ order.name }}</td>
-                                    <td>{{ order.courier.toUpperCase() }} | {{ order.service }} | Rp. {{ moneyFormat(order.cost_courier) }}</td>
-                                    <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
-                                    <td class="text-center">
-                                        <router-link :to="{name: 'detail_order', params:{snap_token: order.snap_token}}" class="btn btn-sm btn-primary">Detail</router-link>
-                                    </td>
-                                </tr>                            
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Invoice</th>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Shipping</th>
+                                        <th scope="col">Grand Total</th>
+                                        <th scope="col">Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="order in orders" :key="order.id">
+                                        <th>{{ order.invoice }}</th>
+                                        <td>{{ order.name }}</td>
+                                        <td>{{ order.courier.toUpperCase() }} | {{ order.service }} | Rp. {{ moneyFormat(order.cost_courier) }}</td>
+                                        <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
+                                        <td class="text-center">
+                                            <router-link :to="{name: 'detail_order', params:{snap_token: order.snap_token}}" class="btn btn-sm btn-primary">Detail</router-link>
+                                        </td>
+                                    </tr>                            
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@
                     <div class="col-md-4 col-5">
                         <div class="d-flex justify-content-end">
                             <div class="cart-header">
-                                <a href="#" class="btn search-button btn-md" style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"><i class="fa fa-shopping-cart"></i> 0 | Rp. 0 </a>
+                                <router-link :to="{name: 'cart'}" class="btn search-button btn-md" style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"><i class="fa fa-shopping-cart"></i> {{ cartCount }} | Rp. {{ moneyFormat(cartTotal) }} </router-link>
                             </div>
                             <div class="account">                                
                                 <router-link :to="{name: 'login'}" v-if="!isLoggedIn" class="btn search-button btn-md d-none d-md-block ms-4"><i class="fa fa-user-circle"></i> Account</router-link>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
     export default {
@@ -48,9 +48,31 @@ import { useStore } from 'vuex'
                 return store.getters['auth/isLoggedIn']
             })
 
+            const cartCount = computed(() => {                
+                return store.getters['cart/cartCount']
+            })
+            
+            const cartTotal = computed(() => {                
+                return store.getters['cart/cartTotal']
+            })
+
+            onMounted(() => {
+                const token = store.state.auth.token
+
+                if(!token) {
+                    return
+                }
+                
+                store.dispatch('cart/cartCount')
+                
+                store.dispatch('cart/cartTotal')
+            })
+
             return {
                 store,
-                isLoggedIn
+                isLoggedIn,
+                cartCount,
+                cartTotal
             }
         }
     }

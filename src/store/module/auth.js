@@ -44,6 +44,18 @@ const auth = {
 
                         commit('GET_USER', user)
 
+                        api.get('/cart')
+                            .then(response => {
+                                commit('cart/GET_CART', response.data.cart, { root: true })
+                                console.log(response.data.cart)
+                            })
+
+                        api.get('/cart/total')
+                            .then(response => {
+                                commit('cart/TOTAL_CART', response.data.total, { root: true })
+                                console.log(response.data.total)
+                            })
+
                         resolve(response);
                     }).catch(error => {
                         localStorage.removeItem('token')
@@ -68,6 +80,9 @@ const auth = {
                 localStorage.removeItem('token')
                 localStorage.removeItem('user')
 
+                commit('cart/GET_CART', 0, { root: true })
+                commit('cart/TOTAL_CART', 0, { root: true })
+
                 delete api.defaults.headers.common['Authorization']
 
                 resolve()
@@ -91,6 +106,18 @@ const auth = {
                         commit('AUTH_SUCCESS', token, user)
 
                         commit('GET_USER', user)
+
+                        api.get('/cart')
+                            .then(response => {
+                                commit('cart/GET_CART', response.data.cart, { root: true })
+                                console.log(response.data.cart)
+                            })
+
+                        api.get('/cart/total')
+                            .then(response => {
+                                commit('cart/TOTAL_CART', response.data.total, { root: true })
+                                console.log(response.data.total)
+                            })
 
                         resolve(response)
                     }).catch(error => {

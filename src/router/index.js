@@ -65,6 +65,15 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "detail_category" */ '../views/category/Show.vue')
     },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: () =>
+            import ( /* webpackChunkName: "cart" */ '../views/cart/Index.vue'),
+        meta: {
+            requiresAuth: true
+        }
+    }
 ]
 
 const router = createRouter({

@@ -150,7 +150,7 @@ import { useRoute, useRouter } from 'vue-router'
                 return store.getters['order/productInOrder']
             })
             
-            function payment(snap_token) {
+            const payment = (snap_token) => {
                 window.snap.pay(snap_token, {
                     onSuccess: function () {
                         router.push({name: 'detail_order', params:{snap_token: snap_token}})  

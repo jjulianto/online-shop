@@ -27,8 +27,8 @@
                                 {{ validation.password[0] }}
                             </div>
                             <div class="form-group form-check mt-3 mb-3">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Ingatkan Saya</label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" style="cursor: pointer">
+                                <label class="form-check-label" for="exampleCheck1" style="cursor: pointer">Ingatkan Saya</label>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
@@ -64,7 +64,7 @@ export default {
         
         const router = useRouter()
         
-        function login() {                
+        const login = () => {                
             let email    = user.email
             let password = user.password            
                             
