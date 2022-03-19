@@ -6,13 +6,19 @@ const routes = [{
         path: '/register',
         name: 'register',
         component: () =>
-            import ( /* webpackChunkName: "register" */ '@/views/auth/Register.vue')
+            import ( /* webpackChunkName: "register" */ '@/views/auth/Register.vue'),
+        meta: {
+            hideForAuth: true
+        }
     },
     {
         path: '/login',
         name: 'login',
         component: () =>
-            import ( /* webpackChunkName: "login" */ '@/views/auth/Login.vue')
+            import ( /* webpackChunkName: "login" */ '@/views/auth/Login.vue'),
+        meta: {
+            hideForAuth: true
+        }
     },
     {
         path: '/customer/dashboard',
@@ -88,6 +94,12 @@ router.beforeEach((to, from, next) => {
             return
         }
         next('/login')
+    } else if (to.matched.some(record => record.meta.hideForAuth)) {
+        if (!store.getters['auth/isLoggedIn']) {
+            next()
+            return
+        }
+        next('/')
     } else {
         next()
     }
