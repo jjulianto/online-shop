@@ -1,4 +1,5 @@
 import api from "@/api/api";
+import router from '@/router'
 
 const auth = {
     namespaced: true,
@@ -69,6 +70,23 @@ const auth = {
             api.get('/user')
                 .then(response => {
                     commit('GET_USER', response.data.user)
+                })
+                .catch(error => {
+                    if (error.response.status === 401) {
+                        commit('AUTH_LOGOUT')
+
+                        localStorage.removeItem('token')
+                        localStorage.removeItem('user')
+
+                        commit('cart/GET_CART', 0, { root: true })
+                        commit('cart/TOTAL_CART', 0, { root: true })
+
+                        delete api.defaults.headers.common['Authorization']
+
+                        router.push({ name: 'login' })
+                    } else {
+                        console.log(error.response.data)
+                    }
                 })
         },
         logout({ commit }) {
