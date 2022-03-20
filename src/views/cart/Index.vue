@@ -198,8 +198,7 @@ import Swal from 'sweetalert2'
             onMounted(() => {                
                 store.dispatch('cart/cartCount')
                 store.dispatch('cart/cartTotal')
-                store.dispatch('cart/cartWeight')
-            
+                store.dispatch('cart/cartWeight')            
             })
             
             const carts = computed(() => {
@@ -249,7 +248,7 @@ import Swal from 'sweetalert2'
             
             const provinces = onMounted(() => {
             api.get('/rajaongkir/provinces')
-                .then(response => {
+                .then(response => {                
                     state.provinces = response.data.data
                 }).catch(error => {
                     console.log(error)
@@ -283,12 +282,14 @@ import Swal from 'sweetalert2'
                     return
                 }
 
+                Swal.showLoading()
                 api.post('/rajaongkir/checkOngkir', {
                     city_destination: state.city_id,
                     weight: cartWeight.value,
                     courier: state.courier_type
                 })
                 .then(response => {
+                    Swal.close()
                     state.cost = true
                                     
                     state.costs = response.data.data[0].costs
@@ -329,14 +330,24 @@ import Swal from 'sweetalert2'
                         address:            state.address,
                         grandTotal:         state.grandTotal
                     }
+
+                    Swal.showLoading()
                     store.dispatch('cart/checkout', data)
-                        .then(response => {                        
+                        .then(response => { 
+                            Swal.close()                            
                             router.push({
                                 name: 'detail_order',
                                 params: {
                                     snap_token: response[0].snap_token
                                 }
                             })
+                            Swal.fire({
+                                title: "Success",
+                                text: "Checkout berhasil.",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
                         }).catch(error => {
                             console.log(error)
                         })

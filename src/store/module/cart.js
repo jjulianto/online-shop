@@ -34,6 +34,7 @@ const cart = {
 
             api.defaults.headers.common['Authorization'] = "Bearer " + token
 
+            Swal.showLoading()
             api.post('/cart', {
                     product_id: product_id,
                     price: price,
@@ -52,6 +53,7 @@ const cart = {
                             commit('TOTAL_CART', response.data.total)
                         })
 
+                    Swal.close()
                     Swal.fire({
                         title: "Success",
                         text: "Produk ditambahkan ke keranjang.",
@@ -96,6 +98,7 @@ const cart = {
 
             api.defaults.headers.common['Authorization'] = "Bearer " + token
 
+            Swal.showLoading()
             api.post('/cart/remove', {
                     cart_id: cart_id
                 })
@@ -114,6 +117,7 @@ const cart = {
                         .then(response => {
                             commit('CART_WEIGHT', response.data.total)
                         })
+                    Swal.close()
                 })
         },
         checkout({ commit }, data) {

@@ -87,14 +87,16 @@ import Swal from 'sweetalert2'
                 let email    = user.email
                 let password = user.password
                 let password_confirmation = user.password_confirmation
-               
+
+                Swal.showLoading()               
                 store.dispatch('auth/register', {
                     name,
                     email,
                     password,
                     password_confirmation
                 })
-                .then(() => {                    
+                .then(() => {         
+                    Swal.close()           
                     router.push({name: 'dashboard'})
                     Swal.fire({
                         title: "Success",
@@ -103,7 +105,8 @@ import Swal from 'sweetalert2'
                         showConfirmButton: false,
                         timer: 1500
                     });
-                }).catch(error => {                    
+                }).catch(error => {   
+                    Swal.close()                 
                     validation.value = error
                 })
             }

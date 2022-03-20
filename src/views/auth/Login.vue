@@ -68,11 +68,13 @@ export default {
             let email    = user.email
             let password = user.password            
                             
+            Swal.showLoading()
             store.dispatch('auth/login', {
                 email,
                 password
             })
             .then(() => {                    
+                Swal.close()
                 router.push({name: 'dashboard'})
                 Swal.fire({
                     title: "Success",
@@ -81,7 +83,8 @@ export default {
                     showConfirmButton: false,
                     timer: 1500
                 });
-            }).catch(error => {                    
+            }).catch(error => {     
+                Swal.close()               
                 validation.value = error
             })
         }
