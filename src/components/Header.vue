@@ -10,7 +10,7 @@
                     <div class="col-md-6 col-5">
                         <div class="d-flex justify-content-end">
                             <div class="cart-header">
-                                <router-link :to="{name: 'cart'}" class="btn search-button btn-md" style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"><i class="fa fa-shopping-cart"></i> {{ cartCount }} | Rp. {{ moneyFormat(cartTotal) }} </router-link>
+                                <router-link :to="{name: 'cart'}" class="btn search-button btn-md" style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"><i class="fa fa-shopping-cart"></i> <span v-if="cartCount >= 1">{{ cartCount }} | Rp. {{ moneyFormat(cartTotal) }}</span> </router-link>
                             </div>
                             <div class="account">                                
                                 <router-link :to="{name: 'login'}" v-if="!isLoggedIn" class="btn search-button btn-md d-none d-md-block ms-3"><i class="fa fa-user-circle"></i> Account</router-link>

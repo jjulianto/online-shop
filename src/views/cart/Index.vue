@@ -78,7 +78,7 @@
                         </div>
                         <div v-else class="mt-2 text-center">
                             <p class="fs-5 fw-bold">Sepertinya kamu belum memiliki produk di keranjang</p>
-                            <router-link :to="{name: 'home'}" class="btn btn-primary btn-lg shadow-md"><i class="fa fa-long-arrow-alt-left"></i> Beranda</router-link>                        
+                            <router-link :to="{name: 'home'}" class="btn btn-primary btn-md shadow-md"><i class="fa fa-long-arrow-alt-left"></i> Beranda</router-link>                        
                         </div>
                     </div>
                 </div>

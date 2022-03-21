@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="fw-bold"> <i class="fas fa-shopping-cart"></i> My Order</h5>
                         <hr>
-                        <div class="table-responsive">
+                        <div class="table-responsive" v-if="orders.length >= 1">
                             <table class="table table-striped table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
@@ -32,6 +32,10 @@
                                     </tr>                            
                                 </tbody>
                             </table>
+                        </div>
+                        <div v-else class="mt-2 text-center">
+                            <p class="fs-5 fw-bold">Sepertinya kamu belum memiliki pesanan sebelumnya</p>
+                            <router-link :to="{name: 'home'}" class="btn btn-primary btn-md shadow-md"><i class="fa fa-long-arrow-alt-left"></i> Beranda</router-link>                        
                         </div>
                     </div>
                 </div>

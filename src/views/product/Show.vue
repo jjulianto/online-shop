@@ -13,16 +13,14 @@
                     <div class="card-body">
                         <label class="fw-bold" style="font-size: 20px;"> {{ product.title }} </label>
                         <hr style="border-top: 1px solid rgb(0 0 0);border-radius:.5rem">
-                        <div class="discount mt-2 text-danger d-flex align-items-center">
+                        <div class="discount mt-2 text-danger d-flex align-items-center" v-if="product.discount >= 1">
                             <s>Rp. {{ moneyFormat(product.price) }}</s> 
                             <span style="background-color: darkorange" class="badge badge-pill badge-success text-white ms-2">Diskon
                                 {{ product.discount }} %</span>
                         </div>
                         <div class="price fw-bold mt-3" style="color: #47b04b;font-size:18px">
                             Rp. {{ moneyFormat(calculateDiscount(product)) }}</div>
-                        <p class="content mt-3">
-                            {{ product.content }}
-                        </p>
+                        <p class="content mt-3" v-html="product.content"></p>
                         <div class="weight">
                             <label class="fw-bold me-5">Berat</label>
                             <label><span class="fw-bold">{{ product.weight }}</span> gram</label>
