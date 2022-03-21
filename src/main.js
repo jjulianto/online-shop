@@ -1,17 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
 import router from './router'
-
 import store from './store'
+import VueLazyLoad from 'vue3-lazyload'
 
 import 'vue2-animate/dist/vue2-animate.min.css'
 
 const app = createApp(App)
-
 app.use(router)
-
 app.use(store)
+app.use(VueLazyLoad)
 
 app.mixin({
     methods: {

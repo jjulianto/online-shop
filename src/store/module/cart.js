@@ -117,7 +117,15 @@ const cart = {
                         .then(response => {
                             commit('CART_WEIGHT', response.data.total)
                         })
+
                     Swal.close()
+                    Swal.fire({
+                        title: "Success",
+                        text: "Produk dihapus dari keranjang.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 })
         },
         checkout({ commit }, data) {
