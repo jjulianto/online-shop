@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import store from '@/store'
+import store from '../store'
 
 const routes = [{
         path: '/register',
         name: 'register',
         component: () =>
-            import ( /* webpackChunkName: "register" */ '@/views/auth/Register.vue'),
+            import ( /* webpackChunkName: "register" */ '../views/auth/Register.vue'),
         meta: {
             hideForAuth: true
         }
@@ -15,7 +15,7 @@ const routes = [{
         path: '/login',
         name: 'login',
         component: () =>
-            import ( /* webpackChunkName: "login" */ '@/views/auth/Login.vue'),
+            import ( /* webpackChunkName: "login" */ '../views/auth/Login.vue'),
         meta: {
             hideForAuth: true
         }
@@ -24,7 +24,7 @@ const routes = [{
         path: '/customer/dashboard',
         name: 'dashboard',
         component: () =>
-            import ( /* webpackChunkName: "dashboard" */ '@/views/dashboard/Index.vue'),
+            import ( /* webpackChunkName: "dashboard" */ '../views/dashboard/Index.vue'),
         meta: {
             requiresAuth: true
         }
@@ -51,7 +51,7 @@ const routes = [{
         path: '/',
         name: 'home',
         component: () =>
-            import ( /* webpackChunkName: "home" */ '@/views/home/Index.vue')
+            import ( /* webpackChunkName: "home" */ '../views/home/Index.vue')
     },
     {
         path: '/product/:slug',

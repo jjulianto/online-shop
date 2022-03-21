@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import CustomerMenu from '@/components/CustomerMenu'
+import CustomerMenu from '../../components/CustomerMenu'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 

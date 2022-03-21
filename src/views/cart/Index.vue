@@ -183,7 +183,7 @@
 </template>
 
 <script>
-import api from '@/api/api'
+import api from '../../api/api'
 import { onMounted, computed, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'

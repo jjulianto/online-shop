@@ -1,5 +1,5 @@
-import api from "@/api/api";
-import router from '@/router'
+import api from "../../api/api";
+import router from '../../router'
 
 const auth = {
     namespaced: true,

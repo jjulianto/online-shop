@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import Category from '@/components/Category'
-import Slider from '@/components/Slider'
+import Category from '../../components/Category'
+import Slider from '../../components/Slider'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 

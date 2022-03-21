@@ -23,42 +23,42 @@
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/BCA.png" style="width: 50px;">
+                                    <img src="../assets/payment/BCA.png" style="width: 50px;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/BNI.png" style="width: 45px;">
+                                    <img src="../assets/payment/BNI.png" style="width: 45px;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/BRI.png" style="width: 60px;">
+                                    <img src="../assets/payment/BRI.png" style="width: 60px;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/GOPAY.png" style="width: 60px;">
+                                    <img src="../assets/payment/GOPAY.png" style="width: 60px;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/indomaret-logo.png" style="width: 60px;">
+                                    <img src="../assets/payment/indomaret-logo.png" style="width: 60px;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-4 mb-3">
                             <div class="card h-100 border-0 rounded shadow">
                                 <div class="card-body p-2 text-center">
-                                    <img src="@/assets/payment/atm-bersama.jpg" style="width: 40px;">
+                                    <img src="../assets/payment/atm-bersama.jpg" style="width: 40px;">
                                 </div>
                             </div>
                         </div>
