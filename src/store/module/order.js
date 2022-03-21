@@ -1,4 +1,4 @@
-import api from '../../api/api'
+import Api from '../../api/Api'
 
 const order = {
     namespaced: true,
@@ -25,8 +25,8 @@ const order = {
         getOrder({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            api.get('/order')
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+            Api.get('/order')
                 .then(response => {
                     commit('GET_ORDER', response.data.data)
                 })
@@ -34,8 +34,8 @@ const order = {
         detailOrder({ commit }, snap_token) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            api.get(`order/${snap_token}`)
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+            Api.get(`order/${snap_token}`)
                 .then(response => {
                     commit('DETAIL_ORDER', response.data.data)
                     commit('PRODUCT_IN_ORDER', response.data.product)

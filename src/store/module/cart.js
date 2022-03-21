@@ -1,4 +1,4 @@
-import api from "../../api/api"
+import Api from "../../api/Api"
 import Swal from 'sweetalert2'
 
 const cart = {
@@ -32,10 +32,10 @@ const cart = {
             const token = localStorage.getItem('token')
             const user = JSON.parse(localStorage.getItem('user'))
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
             Swal.showLoading()
-            api.post('/cart', {
+            Api.post('/cart', {
                     product_id: product_id,
                     price: price,
                     quantity: quantity,
@@ -43,12 +43,12 @@ const cart = {
                     customer_id: user.id
                 })
                 .then(() => {
-                    api.get('/cart')
+                    Api.get('/cart')
                         .then(response => {
                             commit('GET_CART', response.data.cart)
                         })
 
-                    api.get('/cart/total')
+                    Api.get('/cart/total')
                         .then(response => {
                             commit('TOTAL_CART', response.data.total)
                         })
@@ -66,9 +66,9 @@ const cart = {
         cartCount({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
-            api.get('/cart')
+            Api.get('/cart')
                 .then(response => {
                     commit('GET_CART', response.data.cart)
                 })
@@ -76,9 +76,9 @@ const cart = {
         cartTotal({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
-            api.get('/cart/total')
+            Api.get('/cart/total')
                 .then(response => {
                     commit('TOTAL_CART', response.data.total)
                 })
@@ -86,9 +86,9 @@ const cart = {
         cartWeight({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
-            api.get('/cart/totalWeight')
+            Api.get('/cart/totalWeight')
                 .then(response => {
                     commit('CART_WEIGHT', response.data.total)
                 })
@@ -96,24 +96,24 @@ const cart = {
         removeCart({ commit }, cart_id) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
             Swal.showLoading()
-            api.post('/cart/remove', {
+            Api.post('/cart/remove', {
                     cart_id: cart_id
                 })
                 .then(() => {
-                    api.get('/cart')
+                    Api.get('/cart')
                         .then(response => {
                             commit('GET_CART', response.data.cart)
                         })
 
-                    api.get('/cart/total')
+                    Api.get('/cart/total')
                         .then(response => {
                             commit('TOTAL_CART', response.data.total)
                         })
 
-                    api.get('/cart/totalWeight')
+                    Api.get('/cart/totalWeight')
                         .then(response => {
                             commit('CART_WEIGHT', response.data.total)
                         })
@@ -130,7 +130,7 @@ const cart = {
         },
         checkout({ commit }, data) {
             return new Promise((resolve, reject) => {
-                api.post('/checkout', {
+                Api.post('/checkout', {
                         courier: data.courier_type,
                         service: data.courier_service,
                         cost: data.courier_cost,
@@ -145,7 +145,7 @@ const cart = {
                     .then(response => {
                         resolve(response.data)
 
-                        api.post('/cart/removeAll')
+                        Api.post('/cart/removeAll')
                             .then(() => {
                                 commit('CLEAR_CART')
                             })

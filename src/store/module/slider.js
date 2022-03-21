@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import Api from "../../api/Api";
 
 const slider = {
     namespaced: true,
@@ -15,7 +15,7 @@ const slider = {
 
     actions: {
         getSliders({ commit }) {
-            api.get('/sliders')
+            Api.get('/sliders')
                 .then(response => {
                     commit('GET_SLIDERS', response.data.sliders);
                 })

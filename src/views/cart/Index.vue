@@ -183,7 +183,7 @@
 </template>
 
 <script>
-import api from '../../api/api'
+import Api from '../../api/Api'
 import { onMounted, computed, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
@@ -247,7 +247,7 @@ import Swal from 'sweetalert2'
             })
             
             const provinces = onMounted(() => {
-            api.get('/rajaongkir/provinces')
+            Api.get('/rajaongkir/provinces')
                 .then(response => {                
                     state.provinces = response.data.data
                 }).catch(error => {
@@ -256,7 +256,7 @@ import Swal from 'sweetalert2'
             })
             
             const getCities = () => {            
-                api.get('/rajaongkir/cities', {
+                Api.get('/rajaongkir/cities', {
                     params: {
                         province_id: state.province_id
                     }
@@ -283,7 +283,7 @@ import Swal from 'sweetalert2'
                 }
 
                 Swal.showLoading()
-                api.post('/rajaongkir/checkOngkir', {
+                Api.post('/rajaongkir/checkOngkir', {
                     city_destination: state.city_id,
                     weight: cartWeight.value,
                     courier: state.courier_type
@@ -306,9 +306,9 @@ import Swal from 'sweetalert2'
                 
                 const token = store.state.auth.token
 
-                api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+                Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-                api.get('cart/total')
+                Api.get('cart/total')
                 .then(response => {                
                     state.grandTotal = parseInt(response.data.total) + parseInt(state.courier_cost)
                 })

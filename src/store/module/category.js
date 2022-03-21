@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import Api from "../../api/Api";
 
 const category = {
     namespaced: true,
@@ -19,7 +19,7 @@ const category = {
 
     actions: {
         getCategories({ commit }) {
-            api.get('/categories')
+            Api.get('/categories')
                 .then(response => {
                     commit('GET_CATEGORIES', response.data.categories);
                 })
@@ -28,7 +28,7 @@ const category = {
                 });
         },
         getProductInCategory({ commit }, slug) {
-            api.get(`/category/${slug}`)
+            Api.get(`/category/${slug}`)
                 .then(response => {
                     commit('PRODUCT_IN_CATEGORY', response.data.product)
                 }).catch(error => {

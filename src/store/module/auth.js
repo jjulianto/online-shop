@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import Api from "../../api/Api";
 import router from '../../router'
 
 const auth = {
@@ -26,7 +26,7 @@ const auth = {
     actions: {
         register({ commit }, user) {
             return new Promise((resolve, reject) => {
-                api.post('/register', {
+                Api.post('/register', {
                         name: user.name,
                         email: user.email,
                         password: user.password,
@@ -39,18 +39,18 @@ const auth = {
                         localStorage.setItem('token', token)
                         localStorage.setItem('user', JSON.stringify(user))
 
-                        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+                        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
                         commit('AUTH_SUCCESS', token, user)
 
                         commit('GET_USER', user)
 
-                        api.get('/cart')
+                        Api.get('/cart')
                             .then(response => {
                                 commit('cart/GET_CART', response.data.cart, { root: true })
                             })
 
-                        api.get('/cart/total')
+                        Api.get('/cart/total')
                             .then(response => {
                                 commit('cart/TOTAL_CART', response.data.total, { root: true })
                             })
@@ -66,8 +66,8 @@ const auth = {
         getUser({ commit }) {
             const token = localStorage.getItem('token')
 
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            api.get('/user')
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+            Api.get('/user')
                 .then(response => {
                     commit('GET_USER', response.data.user)
                 })
@@ -81,7 +81,7 @@ const auth = {
                         commit('cart/GET_CART', 0, { root: true })
                         commit('cart/TOTAL_CART', 0, { root: true })
 
-                        delete api.defaults.headers.common['Authorization']
+                        delete Api.defaults.headers.common['Authorization']
 
                         router.push({ name: 'login' })
                     } else {
@@ -99,14 +99,14 @@ const auth = {
                 commit('cart/GET_CART', 0, { root: true })
                 commit('cart/TOTAL_CART', 0, { root: true })
 
-                delete api.defaults.headers.common['Authorization']
+                delete Api.defaults.headers.common['Authorization']
 
                 resolve()
             })
         },
         login({ commit }, user) {
             return new Promise((resolve, reject) => {
-                api.post('/login', {
+                Api.post('/login', {
                         email: user.email,
                         password: user.password,
                     })
@@ -117,18 +117,18 @@ const auth = {
                         localStorage.setItem('token', token)
                         localStorage.setItem('user', JSON.stringify(user))
 
-                        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+                        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
                         commit('AUTH_SUCCESS', token, user)
 
                         commit('GET_USER', user)
 
-                        api.get('/cart')
+                        Api.get('/cart')
                             .then(response => {
                                 commit('cart/GET_CART', response.data.cart, { root: true })
                             })
 
-                        api.get('/cart/total')
+                        Api.get('/cart/total')
                             .then(response => {
                                 commit('cart/TOTAL_CART', response.data.total, { root: true })
                             })

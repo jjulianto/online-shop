@@ -1,4 +1,4 @@
-import api from "../../api/api"
+import Api from "../../api/Api"
 
 const product = {
     namespaced: true,
@@ -19,7 +19,7 @@ const product = {
 
     actions: {
         getProducts({ commit }) {
-            api.get('/products')
+            Api.get('/products')
                 .then(response => {
                     commit('GET_PRODUCTS', response.data.products)
                 })
@@ -28,7 +28,7 @@ const product = {
                 })
         },
         getDetailProduct({ commit }, slug) {
-            api.get(`/product/${slug}`)
+            Api.get(`/product/${slug}`)
                 .then(response => {
                     commit('DETAIL_PRODUCT', response.data.product)
                 }).catch(error => {
