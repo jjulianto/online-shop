@@ -44,7 +44,7 @@
                                     </td>
                                     <td>:</td>
                                     <td>
-                                        {{ detailOrder.courier }} / {{ detailOrder.service }} / Rp.
+                                        {{ detailOrder.courier?.toUpperCase() || '' }} / {{ detailOrder.service }} / Rp.
                                         {{ moneyFormat(detailOrder.cost_courier) }}
                                     </td>
                                 </tr>
@@ -75,11 +75,11 @@
                                         <button @click="payment(detailOrder.snap_token)"
                                             v-if="detailOrder.status == 'pending'" class="btn btn-primary">Bayar Sekarang</button>
                                         <button v-else-if="detailOrder.status == 'success'"
-                                            class="btn btn-success">{{ detailOrder.status }}</button>
+                                            class="btn btn-success">{{ detailOrder.status.replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</button>
                                         <button v-else-if="detailOrder.status == 'expired'"
-                                            class="btn btn-warning">{{ detailOrder.status }}</button>
+                                            class="btn btn-warning">{{ detailOrder.status.replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</button>
                                         <button v-else-if="detailOrder.status == 'failed'"
-                                            class="btn btn-danger">{{ detailOrder.status }}</button>
+                                            class="btn btn-danger">{{ detailOrder.status.replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</button>
                                     </td>
                                 </tr>
                             </tbody>
