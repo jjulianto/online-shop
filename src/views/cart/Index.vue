@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-3 mt-md-0">
                 <div class="card border-0 shadow rounded">            
                     <div class="card-body">
                         <h5><i class="fa fa-user-circle"></i> Rincian Pengiriman</h5>
