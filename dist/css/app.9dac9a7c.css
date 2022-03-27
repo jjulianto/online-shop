@@ -1,4 +1,4 @@
-input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}.fade-enter-active,.fade-leave-active{transition:opacity .5s ease}.fade-enter-from,.fade-leave-to{opacity:0}
+.autocomplete-products[data-v-476e0c8c]{width:40%;background-color:#fff;padding:20px;margin-top:5px;position:absolute;z-index:10;border-radius:5px}.autocomplete-product[data-v-476e0c8c]{display:block;text-decoration:none;color:#000000b3;padding:10px 8px;cursor:pointer;border-radius:5px}.autocomplete-product[data-v-476e0c8c]:hover{background-color:#f3f4f5}input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}.fade-enter-active,.fade-leave-active{transition:opacity .5s ease}.fade-enter-from,.fade-leave-to{opacity:0}
 
 /*!
  * vue2-animate
