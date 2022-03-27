@@ -27,11 +27,11 @@ const auth = {
         register({ commit }, user) {
             return new Promise((resolve, reject) => {
                 Api.post('/register', {
-                        name: user.name,
-                        email: user.email,
-                        password: user.password,
-                        password_confirmation: user.password_confirmation
-                    })
+                    name: user.name,
+                    email: user.email,
+                    password: user.password,
+                    password_confirmation: user.password_confirmation
+                })
                     .then(response => {
                         const token = response.data.token
                         const user = response.data.user
@@ -83,7 +83,7 @@ const auth = {
 
                         delete Api.defaults.headers.common['Authorization']
 
-                        router.push({ name: 'login' })
+                        router.push({ name: 'home' })
                     } else {
                         console.log(error.response.data)
                     }
@@ -107,9 +107,9 @@ const auth = {
         login({ commit }, user) {
             return new Promise((resolve, reject) => {
                 Api.post('/login', {
-                        email: user.email,
-                        password: user.password,
-                    })
+                    email: user.email,
+                    password: user.password,
+                })
                     .then(response => {
                         const token = response.data.token
                         const user = response.data.user

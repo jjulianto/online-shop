@@ -34,14 +34,23 @@ const cart = {
 
             Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
-            Swal.showLoading()
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Silahkan tunggu beberapa saat!',
+                icon: "info",
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            })
             Api.post('/cart', {
-                    product_id: product_id,
-                    price: price,
-                    quantity: quantity,
-                    weight: weight,
-                    customer_id: user.id
-                })
+                product_id: product_id,
+                price: price,
+                quantity: quantity,
+                weight: weight,
+                customer_id: user.id
+            })
                 .then(() => {
                     Api.get('/cart')
                         .then(response => {
@@ -98,10 +107,19 @@ const cart = {
 
             Api.defaults.headers.common['Authorization'] = "Bearer " + token
 
-            Swal.showLoading()
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Silahkan tunggu beberapa saat!',
+                icon: "info",
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            })
             Api.post('/cart/remove', {
-                    cart_id: cart_id
-                })
+                cart_id: cart_id
+            })
                 .then(() => {
                     Api.get('/cart')
                         .then(response => {
@@ -131,17 +149,17 @@ const cart = {
         checkout({ commit }, data) {
             return new Promise((resolve, reject) => {
                 Api.post('/checkout', {
-                        courier: data.courier_type,
-                        service: data.courier_service,
-                        cost: data.courier_cost,
-                        weight: data.weight,
-                        name: data.name,
-                        phone: data.phone,
-                        province: data.province_id,
-                        city: data.city_id,
-                        address: data.address,
-                        grand_total: data.grandTotal
-                    })
+                    courier: data.courier_type,
+                    service: data.courier_service,
+                    cost: data.courier_cost,
+                    weight: data.weight,
+                    name: data.name,
+                    phone: data.phone,
+                    province: data.province_id,
+                    city: data.city_id,
+                    address: data.address,
+                    grand_total: data.grandTotal
+                })
                     .then(response => {
                         resolve(response.data)
 

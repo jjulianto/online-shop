@@ -52,7 +52,7 @@
                                     class="btn search-button btn-md"
                                     style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"
                                 >
-                                    <i class="fa fa-shopping-cart"></i>
+                                    <i class="fa fa-shopping-cart me-1"></i>
                                     <span
                                         v-if="cartCount >= 1"
                                     >{{ cartCount }} | Rp. {{ moneyFormat(cartTotal) }}</span>
@@ -133,8 +133,9 @@ export default {
             }
 
             store.dispatch('cart/cartCount')
-
             store.dispatch('cart/cartTotal')
+
+            store.dispatch('product/getProducts')
         })
 
         return {
