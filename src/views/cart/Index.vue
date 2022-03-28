@@ -137,7 +137,7 @@
                                     >Masukkan Nama Lengkap</div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-3 mt-md-0">
                                 <div class="form-group">
                                     <label class="fw-bold mb-1">No. Hp / Whatsapp</label>
                                     <input
@@ -153,7 +153,7 @@
                                     >Masukkan No. Telp</div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-12 mt-3">
                                 <div class="form-group">
                                     <label class="fw-bold mb-1">Provinsi</label>
                                     <select
@@ -170,7 +170,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-12 mt-3">
                                 <div class="form-group">
                                     <label class="fw-bold mb-1">Kota / Kabupaten</label>
                                     <select
@@ -187,7 +187,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-12 mt-3">
                                 <div class="form-group" v-if="state.courier">
                                     <label class="fw-bold mb-1">Kurir Pengiriman</label>
                                     <br />
@@ -227,7 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-12 mt-1">
                                 <div class="form-group" v-if="state.cost">
                                     <hr
                                         style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem"
@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-12 mt-3">
                                 <div class="form-group">
                                     <label class="fw-bold mb-1">Alamat Lengkap</label>
                                     <textarea
