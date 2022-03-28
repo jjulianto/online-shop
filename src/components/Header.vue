@@ -49,7 +49,7 @@
                             <div class="cart-header">
                                 <router-link
                                     :to="{ name: 'cart' }"
-                                    class="btn search-button btn-md"
+                                    class="btn cart-button btn-md"
                                     style="color: #ffffff;background-color: #6677ef;border-color: #ffffff;"
                                 >
                                     <i class="fa fa-shopping-cart me-1"></i>
