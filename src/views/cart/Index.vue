@@ -102,7 +102,7 @@
                         <div v-else class="mt-2 text-center">
                             <p
                                 class="fs-5 fw-bold"
-                            >Sepertinya kamu belum memiliki produk di keranjang</p>
+                            >Sepertinya kamu belum memiliki produk di keranjang.</p>
                             <router-link
                                 :to="{ name: 'home' }"
                                 class="btn btn-primary btn-md shadow-md"

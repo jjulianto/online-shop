@@ -7,8 +7,10 @@
             <div class="col-md-9 mb-4">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <h5 class="fw-bold"> <i class="fas fa-shopping-cart"></i> My Order</h5>
-                        <hr>
+                        <h5 class="fw-bold">
+                            <i class="fas fa-shopping-cart"></i> My Order
+                        </h5>
+                        <hr />
                         <div class="table-responsive" v-if="orders.length >= 1">
                             <table class="table table-striped table-bordered">
                                 <thead class="thead-dark">
@@ -27,15 +29,25 @@
                                         <td>{{ order.courier.toUpperCase() }} | {{ order.service }} | Rp. {{ moneyFormat(order.cost_courier) }}</td>
                                         <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
                                         <td class="text-center">
-                                            <router-link :to="{name: 'detail_order', params:{snap_token: order.snap_token}}" class="btn btn-sm btn-primary">Detail</router-link>
+                                            <router-link
+                                                :to="{ name: 'detail_order', params: { snap_token: order.snap_token } }"
+                                                class="btn btn-sm btn-primary"
+                                            >Detail</router-link>
                                         </td>
-                                    </tr>                            
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div v-else class="mt-2 text-center">
-                            <p class="fs-5 fw-bold">Sepertinya kamu belum memiliki pesanan sebelumnya</p>
-                            <router-link :to="{name: 'home'}" class="btn btn-primary btn-md shadow-md"><i class="fa fa-long-arrow-alt-left"></i> Beranda</router-link>                        
+                            <p
+                                class="fs-5 fw-bold"
+                            >Sepertinya kamu belum memiliki pesanan sebelumnya.</p>
+                            <router-link
+                                :to="{ name: 'home' }"
+                                class="btn btn-primary btn-md shadow-md"
+                            >
+                                <i class="fa fa-long-arrow-alt-left"></i> Beranda
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -49,34 +61,34 @@ import CustomerMenu from '../../components/CustomerMenu'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
-    export default {
-        components: {            
-            CustomerMenu
-        },
+export default {
+    components: {
+        CustomerMenu
+    },
 
-        setup() {            
-            const store = useStore()
-            
-            onMounted(() => {                
-                return store.dispatch('order/getOrder')
-            })
-            
-            const orders = computed(() => {                
-                return store.getters['order/getOrder']
-            })
-            
-            return {
-                store,
-                orders
-            }
+    setup() {
+        const store = useStore()
+
+        onMounted(() => {
+            return store.dispatch('order/getOrder')
+        })
+
+        const orders = computed(() => {
+            return store.getters['order/getOrder']
+        })
+
+        return {
+            store,
+            orders
         }
     }
+}
 </script>
 
 <style scoped>
-    .table .thead-dark th {
-        color: #fff;
-        background-color: #6777ef;
-        border-color: #6777ef;
-    }
+.table .thead-dark th {
+    color: #fff;
+    background-color: #6777ef;
+    border-color: #6777ef;
+}
 </style>
