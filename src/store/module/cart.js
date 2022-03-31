@@ -32,7 +32,7 @@ const cart = {
             const token = localStorage.getItem('token')
             const user = JSON.parse(localStorage.getItem('user'))
 
-            Api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
             Swal.fire({
                 title: 'Loading...',
@@ -75,7 +75,7 @@ const cart = {
         cartCount({ commit }) {
             const token = localStorage.getItem('token')
 
-            Api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
             Api.get('/cart')
                 .then(response => {
@@ -85,7 +85,7 @@ const cart = {
         cartTotal({ commit }) {
             const token = localStorage.getItem('token')
 
-            Api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
             Api.get('/cart/total')
                 .then(response => {
@@ -95,7 +95,7 @@ const cart = {
         cartWeight({ commit }) {
             const token = localStorage.getItem('token')
 
-            Api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
             Api.get('/cart/totalWeight')
                 .then(response => {
@@ -105,7 +105,7 @@ const cart = {
         removeCart({ commit }, cart_id) {
             const token = localStorage.getItem('token')
 
-            Api.defaults.headers.common['Authorization'] = "Bearer " + token
+            Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
             Swal.fire({
                 title: 'Loading...',
