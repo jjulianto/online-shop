@@ -19,7 +19,77 @@
                     <hr style="border-top: 3px solid rgb(154 155 156);border-radius:.5rem" />
                 </div>
             </div>
-            <div class="row gy-2">
+            <div class="row gy-2" v-if="isLoading">
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-0 shadow rounded-md">
+                        <content-loader
+                            viewBox="0 0 450 570"
+                            :speed="2"
+                            primaryColor="#f3f3f3"
+                            secondaryColor="#ecebeb"
+                        >
+                            <rect x="0" y="0" rx="5" ry="5" width="450" height="290" />
+                            <rect x="125" y="316" rx="5" ry="5" width="200" height="35" />
+                            <rect x="70" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="235" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="125" y="425" rx="5" ry="5" width="200" height="40" />
+                            <rect x="15" y="500" rx="5" ry="5" width="420" height="50" />
+                        </content-loader>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-0 shadow rounded-md">
+                        <content-loader
+                            viewBox="0 0 450 570"
+                            :speed="2"
+                            primaryColor="#f3f3f3"
+                            secondaryColor="#ecebeb"
+                        >
+                            <rect x="0" y="0" rx="5" ry="5" width="450" height="290" />
+                            <rect x="125" y="316" rx="5" ry="5" width="200" height="35" />
+                            <rect x="70" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="235" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="125" y="425" rx="5" ry="5" width="200" height="40" />
+                            <rect x="15" y="500" rx="5" ry="5" width="420" height="50" />
+                        </content-loader>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-0 shadow rounded-md">
+                        <content-loader
+                            viewBox="0 0 450 570"
+                            :speed="2"
+                            primaryColor="#f3f3f3"
+                            secondaryColor="#ecebeb"
+                        >
+                            <rect x="0" y="0" rx="5" ry="5" width="450" height="290" />
+                            <rect x="125" y="316" rx="5" ry="5" width="200" height="35" />
+                            <rect x="70" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="235" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="125" y="425" rx="5" ry="5" width="200" height="40" />
+                            <rect x="15" y="500" rx="5" ry="5" width="420" height="50" />
+                        </content-loader>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-0 shadow rounded-md">
+                        <content-loader
+                            viewBox="0 0 450 570"
+                            :speed="2"
+                            primaryColor="#f3f3f3"
+                            secondaryColor="#ecebeb"
+                        >
+                            <rect x="0" y="0" rx="5" ry="5" width="450" height="290" />
+                            <rect x="125" y="316" rx="5" ry="5" width="200" height="35" />
+                            <rect x="70" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="235" y="375" rx="5" ry="5" width="150" height="25" />
+                            <rect x="125" y="425" rx="5" ry="5" width="200" height="40" />
+                            <rect x="15" y="500" rx="5" ry="5" width="420" height="50" />
+                        </content-loader>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-2" v-else>
                 <div
                     v-for="product in products"
                     :key="product.id"
@@ -70,11 +140,13 @@ import Category from '../../components/Category'
 import Slider from '../../components/Slider'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import { ContentLoader } from "vue-content-loader"
 
 export default {
     components: {
         Category,
-        Slider
+        Slider,
+        ContentLoader
     },
 
     setup() {
@@ -88,8 +160,13 @@ export default {
             return store.state.product.products
         })
 
+        const isLoading = computed(() => {
+            return store.state.product.isLoading
+        })
+
         return {
-            products
+            products,
+            isLoading
         }
     }
 }

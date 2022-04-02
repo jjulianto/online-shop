@@ -1,9 +1,11 @@
 <template>
-  <Header />
-  <transition name="fade" mode="out-in">
-    <router-view />
-  </transition>
-  <Footer />
+  <div id="app">
+    <Header />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
+    <Footer />
+  </div>
 </template>
 
 <script>

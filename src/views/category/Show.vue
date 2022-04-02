@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid mb-5 mt-4">
-        <div class="row gy-2" v-if="products.length >= 1">
+    <div class="container-fluid mb-5 mt-4" v-if="products.length >= 1">
+        <div class="row gy-2">
             <div
                 v-for="product in products"
                 :key="product.id"
@@ -42,13 +42,22 @@
                 </div>
             </div>
         </div>
-        <div class="row gy-2" v-else>
-            <div class="mt-4 text-center">
-                <img src="../../assets/empty-products.svg" style="width: 250px" />
-                <p class="fs-4 mt-3 fw-bold">Produk tidak ditemukan di dalam kategori ini.</p>
-                <router-link :to="{ name: 'home' }" class="btn btn-primary btn-lg shadow-md">
-                    <i class="fa fa-long-arrow-alt-left"></i> Beranda
-                </router-link>
+    </div>
+    <div class="container mb-5 mt-4" v-else>
+        <div class="row gy-2">
+            <div class="col-12">
+                <div class="card border-0 rounded-3 shadow">
+                    <div class="p-4 text-center">
+                        <img src="../../assets/empty-products.svg" style="width: 250px" />
+                        <p class="fs-4 mt-3 fw-bold">Produk tidak ditemukan di dalam kategori ini.</p>
+                        <router-link
+                            :to="{ name: 'home' }"
+                            class="btn btn-primary btn-lg shadow-md"
+                        >
+                            <i class="fa fa-long-arrow-alt-left"></i> Beranda
+                        </router-link>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

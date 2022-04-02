@@ -99,9 +99,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div v-else class="mt-2 text-center">
+                        <div v-else class="mt-3 text-center">
+                            <img src="../../assets/empty-products.svg" style="width: 250px" />
                             <p
-                                class="fs-5 fw-bold"
+                                class="fs-5 mt-3 fw-bold"
                             >Sepertinya kamu belum memiliki produk di keranjang.</p>
                             <router-link
                                 :to="{ name: 'home' }"

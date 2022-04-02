@@ -1,4 +1,5 @@
 import Api from '../../api/Api'
+import Swal from "sweetalert2";
 
 const order = {
     namespaced: true,
@@ -26,8 +27,20 @@ const order = {
             const token = localStorage.getItem('token')
 
             Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Silahkan tunggu beberapa saat!',
+                icon: "info",
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            })
             Api.get('/order')
                 .then(response => {
+                    Swal.close()
                     commit('GET_ORDER', response.data.data)
                 })
         },
@@ -35,8 +48,19 @@ const order = {
             const token = localStorage.getItem('token')
 
             Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Silahkan tunggu beberapa saat!',
+                icon: "info",
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            })
             Api.get(`order/${snap_token}`)
                 .then(response => {
+                    Swal.close()
                     commit('DETAIL_ORDER', response.data.data)
                     commit('PRODUCT_IN_ORDER', response.data.product)
                 })

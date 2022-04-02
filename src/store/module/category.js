@@ -7,6 +7,7 @@ const category = {
     state: {
         categories: [],
         productInCategory: [],
+        isLoading: false
     },
 
     mutations: {
@@ -15,13 +16,18 @@ const category = {
         },
         PRODUCT_IN_CATEGORY(state, products) {
             state.productInCategory = products
+        },
+        IS_LOADING(state, isLoading) {
+            state.isLoading = isLoading
         }
     },
 
     actions: {
         getCategories({ commit }) {
+            commit('IS_LOADING', true)
             Api.get('/categories')
                 .then(response => {
+                    commit('IS_LOADING', false)
                     commit('GET_CATEGORIES', response.data.categories);
                 })
                 .catch(error => {

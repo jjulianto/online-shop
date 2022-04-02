@@ -1,12 +1,12 @@
 import Api from "../../api/Api"
-import Swal from "sweetalert2"
 
 const product = {
     namespaced: true,
 
     state: {
         products: [],
-        product: {}
+        product: {},
+        isLoading: false
     },
 
     mutations: {
@@ -15,13 +15,18 @@ const product = {
         },
         DETAIL_PRODUCT(state, product) {
             state.product = product
+        },
+        IS_LOADING(state, isLoading) {
+            state.isLoading = isLoading
         }
     },
 
     actions: {
         getProducts({ commit }) {
+            commit('IS_LOADING', true)
             Api.get('/products')
                 .then(response => {
+                    commit('IS_LOADING', false)
                     commit('GET_PRODUCTS', response.data.products)
                 })
                 .catch(error => {
@@ -29,19 +34,10 @@ const product = {
                 })
         },
         getDetailProduct({ commit }, slug) {
-            Swal.fire({
-                title: 'Loading...',
-                text: 'Silahkan tunggu beberapa saat!',
-                icon: "info",
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading()
-                }
-            })
+            commit('IS_LOADING', true)
             Api.get(`/product/${slug}`)
                 .then(response => {
-                    Swal.close()
+                    commit('IS_LOADING', false)
                     commit('DETAIL_PRODUCT', response.data.product)
                 }).catch(error => {
                     console.log(error)
