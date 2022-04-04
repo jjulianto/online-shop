@@ -11,6 +11,8 @@
                     :speed="2"
                     primaryColor="#f3f3f3"
                     secondaryColor="#ecebeb"
+                    v-for="(number, index) in categories"
+                    :key="index"
                     class="list-group-item shadow-sm"
                 >
                     <circle cx="15" cy="15" r="15" />
@@ -21,40 +23,8 @@
                     :speed="2"
                     primaryColor="#f3f3f3"
                     secondaryColor="#ecebeb"
-                    class="list-group-item shadow-sm"
                 >
-                    <circle cx="15" cy="15" r="15" />
-                    <rect x="40" y="8" rx="5" ry="5" width="155" height="15" />
-                </content-loader>
-                <content-loader
-                    viewBox="0 0 200 30"
-                    :speed="2"
-                    primaryColor="#f3f3f3"
-                    secondaryColor="#ecebeb"
-                    class="list-group-item shadow-sm"
-                >
-                    <circle cx="15" cy="15" r="15" />
-                    <rect x="40" y="8" rx="5" ry="5" width="155" height="15" />
-                </content-loader>
-                <content-loader
-                    viewBox="0 0 200 30"
-                    :speed="2"
-                    primaryColor="#f3f3f3"
-                    secondaryColor="#ecebeb"
-                    class="list-group-item shadow-sm"
-                >
-                    <circle cx="15" cy="15" r="15" />
-                    <rect x="40" y="8" rx="5" ry="5" width="155" height="15" />
-                </content-loader>
-                <content-loader
-                    viewBox="0 0 200 30"
-                    :speed="2"
-                    primaryColor="#f3f3f3"
-                    secondaryColor="#ecebeb"
-                    class="list-group-item shadow-sm"
-                >
-                    <circle cx="15" cy="15" r="15" />
-                    <rect x="40" y="8" rx="5" ry="5" width="155" height="15" />
+                    <rect x="0" y="0" rx="5" ry="5" width="200" height="30" />
                 </content-loader>
             </ul>
             <ul class="list-group" v-else>
